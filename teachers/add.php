@@ -3,7 +3,21 @@
 include ("../init.php");
 use Models\Teacher;
 
-$teacher= new Teacher('Kane', 'Erryl', 'kane.erryln@auf.edu.ph', '09429900320', '00-1234-568');
-$teacher->setConnection($connection);
-$all_Teachers = $teacher->save();
-var_dump($teacher);
+
+$template = $mustache->loadTemplate('teacher/add.mustache');
+echo $template->render();
+
+try {
+    if (isset($_POST['first_name'])) {
+        $saveTeacher = new Teacher($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['contact_number'], $_POST['employee_number']);
+        $saveTeacher->setConnection($connection);
+        $saveTeacher->saveTeacher();
+        header('Location: index.php');
+    }
+}
+
+catch (Exception $e) {
+    error_log($e->getMessage());
+}
+
+?>

@@ -5,5 +5,7 @@ use Models\Classes;
 
 $class= new Classes('', '', '', '', '', '');
 $class->setConnection($connection);
-$all_Classes = $class->getAll();
-var_dump($all_Classes);
+$all_classes = $class->getAll();
+
+$template = $mustache->loadTemplate('classes/index.mustache');
+echo $template->render(compact('all_classes'));

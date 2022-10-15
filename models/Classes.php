@@ -41,7 +41,7 @@ class Classes
 		$this->connection = $connection;
 	}
 
-    public function save()
+    public function saveClasses()
 	{
 		try {
 			$sql = "INSERT INTO classes SET name=:name, description=:description, class_code=:class_code";

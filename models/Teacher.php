@@ -55,7 +55,7 @@ class Teacher
 		$this->connection = $connection;
 	}
 
-    public function save()
+    public function saveTeacher()
 	{
 		try {
 			$sql = "INSERT INTO teachers SET first_name=:first_name, last_name=:last_name, email=:email, contact_number=:contact_number, employee_number=:employee_number";

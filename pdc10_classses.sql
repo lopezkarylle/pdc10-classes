@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2022 at 06:26 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Oct 15, 2022 at 09:16 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pdc10_classes`
+-- Database: `pdc10_classses`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,8 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `name`, `description`, `class_code`, `teacher_id`) VALUES
 (1, 'Professional Domain Course 1', 'Organizations typically use many business software applications and technologies that need to communicate and work together. ', 'PDC10', 1),
-(2, 'Integrative Programming and Technologies', 'Welcome to IPT10 - Integrative Programming Technologies class', 'IPT10', 0);
+(2, 'Integrative Programming and Technologies', 'Welcome to IPT10 - Integrative Programming Technologies class', 'IPT10', 0),
+(3, 'Social Issues and Professional Ethics', 'This course covers essential topics in Social Issues and Professional Ethics.', 'SIP10', 0);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,10 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id`, `first_name`, `last_name`, `student_number`, `email`, `contact_number`, `program`) VALUES
 (1, 'Karylle', 'Lopez', '20-1068-435', 'lopez.karylle@auf.edu.ph', '09356128543', 'asdfghjkl'),
-(5, 'David', 'Aaron', '20-1067-436', 'david.aaron@auf.edu.ph', '09356185641', 'BSIT');
+(5, 'David', 'Aaron', '20-1067-436', 'david.aaron@auf.edu.ph', '09356185641', 'BSIT'),
+(6, 'Micoh Jomarie', 'Yabut', '14-1068-123', 'yabut.micoh@auf.edu.ph', '09354321789', 'BSCS'),
+(7, 'Russelle', 'Bangsil', '14-2068-321', 'bangsil.russelle@auf.edu.ph', '09123784561', 'BMMA'),
+(8, 'Bobby Marcko', 'Cruz', '20-1063-123', 'cruz.bobby@auf.edu.ph', '09123456789', 'BSIT');
 
 -- --------------------------------------------------------
 
@@ -144,19 +148,19 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
