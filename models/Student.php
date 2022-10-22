@@ -82,7 +82,32 @@ class Student
 		}
 	}
 
-    public function update($first_name, $last_name, $student_number, $email, $contact_number, $program)
+	public function getById($id)
+	{
+		try {
+			$sql = 'SELECT * FROM students WHERE id=:id';
+			$statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':id' => $id
+			]);
+
+			$row = $statement->fetch();
+
+			$this->id = $row['id'];
+			$this->first_name = $row['first_name'];
+			$this->last_name = $row['last_name'];
+			$this->student_number = $row['student_number'];
+			$this->email = $row['email'];
+			$this->contact_number = $row['contact_number'];
+			$this->program = $row['program'];
+
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
+	}
+
+
+    public function updateStudent($first_name, $last_name, $student_number, $email, $contact_number, $program)
 	{
 		try {
 			$sql = 'UPDATE students SET first_name=?, last_name=?, student_number=?, email=?, contact_number=?, program=? WHERE id = ?';
@@ -97,18 +122,13 @@ class Student
                 $this->getId()
 
 			]);
-			$this->first_name = $first_name;
-			$this->last_name = $last_name;
-			$this->student_number = $student_number;
-			$this->email = $email;
-			$this->contact_number = $contact_number;
-			$this->program = $program;
+			
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
         
 	}
-    public function delete()
+    public function deleteStudent()
 	{
 		try {
 			$sql = 'DELETE FROM students WHERE id=?';

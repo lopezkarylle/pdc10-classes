@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<title>Add Student Form</title>
+<title>Add Class Form</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -28,7 +28,7 @@
         border-radius: 3px;
     }
 	.signup-form{
-		width: 400px;
+		width: 600px;
 		margin: 0 auto;
 		padding: 30px 0;
 	}
@@ -102,7 +102,7 @@
 </head>
 <body>
 <div class="signup-form">
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
     <form method="POST" action="../classes/add.php">
 		<h2> CLASS </h2>
         <div class="form-group">
@@ -115,8 +115,18 @@
             <input type="text" class="form-control" name="class_code" placeholder="Enter class code" required="required">
         </div>        
 		<div class="form-group">
+			<label for="employee_number">Teacher ID:</label>
+				<select name="employee_number" id="employee_number">
+					<option value="{{employee_number}}"></option>
+					{{# all_teachers}}
+					<option value="{{employee_number}}">{{first_name}} {{last_name}}</option>
+					{{/ all_teachers}}
+				</select>
+		</div>
+		<div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block">Add Class</button>
         </div>
+		
     </form>
 </div>
 </body>
