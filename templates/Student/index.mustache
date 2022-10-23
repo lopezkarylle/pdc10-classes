@@ -265,6 +265,7 @@ function ConfirmDelete()
                         <th>Contact Number</th>
                         <th>Program</th>
                         <th>Actions</th>
+                        <th></th>
                     </tr>
                 </thead>
                 {{# all_students}}
@@ -279,6 +280,7 @@ function ConfirmDelete()
                         <td>
                             <a href="../students/edit.php?id={{id}}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             <a href="../students/delete.php?id={{id}}" button onclick="ConfirmDelete()" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="../students/view.php?id={{id}}"class="fa" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xF1C3;</i></a>
                         </td>
                     </tr>
                 </tbody>

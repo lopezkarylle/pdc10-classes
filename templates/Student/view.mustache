@@ -4,10 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Teachers</title>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<title>All Students</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -174,7 +171,6 @@
         margin-top: 10px;
         font-size: 13px;
     }
-
     .sidebar {
         margin: 0;
         padding: 0;
@@ -228,11 +224,10 @@
 
 </head>
 <body>
-
 <script>
 function ConfirmDelete()
 {
-  var x = confirm("Are you sure you want to remove teacher?");
+  var x = confirm("Are you sure you want to remove student?");
   if (x)
       return true;
   else
@@ -241,8 +236,8 @@ function ConfirmDelete()
 </script>
 
 <div class="sidebar">
-  <a href="../students/index.php">Students</a>
-  <a class="active" href="../teachers/index.php">Teachers</a>
+  <a class="active" href="../students/index.php">Students</a>
+  <a href="../teachers/index.php">Teachers</a>
   <a href="../classes/index.php">Classes</a>
   <a href="../class-roster/index.php">Class Rosters</a>
 </div>
@@ -253,10 +248,8 @@ function ConfirmDelete()
             <div class="table-title">
                 <div class="row">
                     <div class="col-xs-5">
-                        <h2><b>Teachers</b> List</h2>
-                    </div>
-                    <div class="col-xs-7">
-                        <a href="../teachers/add.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New Teacher</span></a>					
+                        <h2><b>{{first_name}} {{last_name}}</b> </h2>
+                        <h5>Enrolled Classes</h5>
                     </div>
                 </div>
             </div>
@@ -265,29 +258,20 @@ function ConfirmDelete()
                     <tr>
                         <th>#</th>
                         <th>Name</th>						
-                        <th>Employee Number</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>Actions</th>
-                        <th></th>
+                        <th>Description</th>
+                        <th>Class code</th>
                     </tr>
                 </thead>
-                {{# all_teachers}}
+                {{# all_students}}
                 <tbody>
                     <tr>
                         <td>{{ id }}</td>
-                        <td>{{ first_name }} {{ last_name }}</td>
-                        <td>{{ employee_number }}</td>                        
-                        <td>{{ email }}</td>
-                        <td>{{ contact_number }}</td>
-                        <td>
-                            <a href="../teachers/edit.php?id={{id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="../teachers/delete.php?id={{id}}" button onclick="ConfirmDelete()" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            <a href="../teachers/view.php?id={{id}}"class="fa" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xF1C3;</i></a>
-                        </td>
+                        <td>{{ name }}</td>
+                        <td>{{ description }}</td>                        
+                        <td>{{ class_code }}</td>
                     </tr>
                 </tbody>
-                {{/ all_teachers}}
+                {{/ all_students}}
             </table>
         </div>
     </div>        

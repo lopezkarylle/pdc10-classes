@@ -253,38 +253,27 @@ function ConfirmDelete()
             <div class="table-title">
                 <div class="row">
                     <div class="col-xs-5">
-                        <h2><b>Teachers</b> List</h2>
-                    </div>
-                    <div class="col-xs-7">
-                        <a href="../teachers/add.php" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Add New Teacher</span></a>					
+                       <h2><b>{{first_name}} {{last_name}}</b> </h2>
+                       <h5>Assigned Classes</h5>
                     </div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
-                <thead>
+                  <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>						
-                        <th>Employee Number</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>Actions</th>
-                        <th></th>
+                        <th>Description</th>
+                        <th>Class code</th>
                     </tr>
                 </thead>
                 {{# all_teachers}}
                 <tbody>
                     <tr>
                         <td>{{ id }}</td>
-                        <td>{{ first_name }} {{ last_name }}</td>
-                        <td>{{ employee_number }}</td>                        
-                        <td>{{ email }}</td>
-                        <td>{{ contact_number }}</td>
-                        <td>
-                            <a href="../teachers/edit.php?id={{id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="../teachers/delete.php?id={{id}}" button onclick="ConfirmDelete()" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            <a href="../teachers/view.php?id={{id}}"class="fa" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View">&#xF1C3;</i></a>
-                        </td>
+                        <td>{{ name }}</td>
+                        <td>{{ description }}</td>                        
+                        <td>{{ class_code }}</td>
                     </tr>
                 </tbody>
                 {{/ all_teachers}}
